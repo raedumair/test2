@@ -1,7 +1,6 @@
-print("Hello, World!");
-let a = 1;
-let b = 2;
-let c = a + b;
-console.log(c);
+const a = 1;
+const b = 2;
+const c = a + b;
+
 console.log("Hello, World!");
-console.log("Hello, World!");               
+console.log(c);

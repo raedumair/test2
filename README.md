@@ -30,9 +30,9 @@ That prints `Hello, World!` (well, `print(...)` — so maybe treat it as a joke 
 
 ## Files
 
-| File | Why it exists |
-|------|----------------|
-| `README.md` | You’re reading it |
-| `test.js` | A one-line greeting |
+| File        | Why it exists       |
+| ----------- | ------------------- |
+| `README.md` | You’re reading it   |
+| `test.js`   | A one-line greeting |
 
 That’s all. No API, no config, no extra folders.
