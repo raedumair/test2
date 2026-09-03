@@ -1,25 +1,41 @@
 name: CI
 
-# pull_request → checks on the PR head, which is what gates the merge.
-# push to main → checks on the merge commit, which is where a post-merge
-# pipeline's results live. Anchor reads both.
+# pull_request → checks land on the PR head, which is what branch protection
+# gates the merge on. push to main → checks land on the merge commit, where a
+# post-merge pipeline's results live. Anchor's Code Changes register reads
+# both, so a change shows its CI either way.
 on:
   pull_request:
   push:
     branches: [main]
 
 jobs:
-  # Named to match the required status context on main's branch protection.
+  # The job name IS the check name, and this one is named to match the
+  # required status context already configured on main's branch protection.
   frontend:
+    name: frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # `npm install`, not `npm ci`: there is no lockfile yet. Commit one and
+      # this becomes `npm ci` with caching.
+      - run: npm install --no-audit --no-fund
       - name: Lint
-        run: echo "no linter yet — placeholder so the required check reports"
+        run: npm run lint
+      - name: Check formatting
+        run: npm run format:check
 
   test:
+    name: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test
-        run: echo "no tests yet — placeholder"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install --no-audit --no-fund
+      - name: Unit tests
+        run: npm test
