@@ -1,0 +1,25 @@
+name: CI
+
+# pull_request → checks on the PR head, which is what gates the merge.
+# push to main → checks on the merge commit, which is where a post-merge
+# pipeline's results live. Anchor reads both.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  # Named to match the required status context on main's branch protection.
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint
+        run: echo "no linter yet — placeholder so the required check reports"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: echo "no tests yet — placeholder"
