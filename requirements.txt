@@ -1,13 +1,13 @@
-# Deliberately old, known-vulnerable pins.
+# Pinned at or above the first patched version GitHub's advisories name for
+# each alert this repo raised — read from the alerts themselves rather than
+# guessed, so every open Dependabot alert has something to resolve against.
 #
-# Nothing installs or imports these — the file exists so GitHub's dependency
-# graph has a manifest to parse and Dependabot has something to alert on.
-# Each line is a version with published advisories, chosen to span severities
-# so the vulnerability register shows a realistic mix rather than one banding.
-Django==2.2.0
-PyYAML==5.1
-urllib3==1.24.1
-requests==2.19.1
-Jinja2==2.10
-Flask==0.12.2
-cryptography==2.3
+# Where two advisories named the same package differently (Django/django,
+# Jinja2/jinja2, PyYAML/pyyaml), the higher requirement wins.
+Django==4.2.26
+PyYAML==5.4
+urllib3==2.7.0
+requests==2.20.0
+Jinja2==2.11.3
+Flask==2.2.5
+cryptography==49.0.0
