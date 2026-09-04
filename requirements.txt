@@ -1,13 +1,15 @@
-# Pinned at or above the first patched version GitHub's advisories name for
-# each alert this repo raised — read from the alerts themselves rather than
-# guessed, so every open Dependabot alert has something to resolve against.
+# Pinned at the highest patched version GitHub's advisories name for each
+# package, read from the alerts this repo actually raised.
 #
-# Where two advisories named the same package differently (Django/django,
-# Jinja2/jinja2, PyYAML/pyyaml), the higher requirement wins.
-Django==4.2.26
+# The first pass pinned at the patched version of the advisory each alert
+# happened to mention, which is not the same thing: a package usually has
+# several advisories, and clearing the one you looked at leaves the rest. The
+# clearest example was cryptography — 49.0.0 fixed one advisory and sat inside
+# the vulnerable range (>= 44.0.0, < 50.0.0) of another.
+Django==5.2.16
 PyYAML==5.4
 urllib3==2.7.0
-requests==2.20.0
-Jinja2==2.11.3
-Flask==2.2.5
-cryptography==49.0.0
+requests==2.33.0
+Jinja2==3.1.6
+Flask==3.1.3
+cryptography==50.0.0
