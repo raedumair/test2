@@ -1,0 +1,13 @@
+{
+  "name": "test2-demo-deps",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Old npm pins so Dependabot has a second ecosystem to alert on. Not installed by the root project and not built by CI.",
+  "dependencies": {
+    "lodash": "4.17.11",
+    "axios": "0.21.0",
+    "minimist": "1.2.0",
+    "handlebars": "4.0.11",
+    "js-yaml": "3.13.0"
+  }
+}
